@@ -1,0 +1,264 @@
+initialization_parameters:
+  nx: 767
+  ny: 767
+  nz: 128
+
+  dx: 4.0
+  dy: 4.0
+  dz: 4.0
+
+  humidity: true
+
+  scalar_advec: 'ws-scheme'
+  momentum_advec: 'ws-scheme'
+  psolver: 'multigrid'
+  mg_cycles: 4
+  turbulence_closure: '1.5-order'
+
+  initializing_actions: 'interpolate_from_parent read_from_file'
+  reference_state: 'horizontal_average'
+
+  bc_lr: 'nested'
+  bc_ns: 'nested'
+
+  surface_pressure: 1000.0
+
+  origin_date_time: '2018-03-31 03:00:00 +00' # day before target day
+
+  # 50th parallel (Central Europe), longitude=0 just for convenience
+  latitude: 50.0
+  longitude: 0.0
+
+  topography: 'read_from_file'
+
+  allow_roughness_limitation: true
+
+runtime_parameters:
+  npex: 12
+  npey: 12
+
+  # 1-day
+  end_time: 90000.0
+
+  termination_time_needed: 1800.0
+
+  dt_run_control: 60.0
+  dt_dots: 60.0
+
+  skip_time_dopr: 0.0
+  dt_dopr: 1800.0
+  averaging_interval_pr: 1800.0
+  dt_averaging_input_pr: 0.0
+
+  data_output_pr:
+    - '#u'
+    - '#v'
+    - 'w'
+    - '#theta'
+    - '#q'
+    - '#km'
+    - '#kh'
+    - 'rh'
+    - 'e'
+    - 'e*'
+    - 'wu'
+    - 'w"u"'
+    - 'w*u*'
+    - 'wv'
+    - 'w"v"'
+    - 'w*v*'
+    - 'wtheta'
+    - 'w"theta"'
+    - 'w*theta*'
+    - 'wqv'
+    - 'w"qv"'
+    - 'w*qv*'
+    - 'u*2'
+    - 'v*2'
+    - 'w*2'
+    - 'Sw'
+    - '#t_soil'
+    - '#m_soil'
+    
+  do3d_at_begin: true
+  do2d_at_begin: true
+
+  dt_data_output: 1800.0
+  dt_data_output_av: 1800.0
+  averaging_interval: 1800.0
+  dt_do2d_xy: 1800.0
+  dt_do2d_yz: 1800.0
+  dt_do2d_xz: 1800.0
+  dt_do3d: 1800.0
+
+  section_xz:
+    - 384 # domain xsect
+    - 224 # lcz xsect (partial lcz cell)
+    - 256
+    - 288 # lcz xsect
+    - 352 # lcz xsect
+    - 416 # lcz xsect
+    - 480 # lcz xsect
+    - 512
+    - 544 # lcz xsect (partial lcz cell)
+
+  section_yz:
+    - 384 # domain xsect
+    - 400 # lcz xsect (partial lcz cell)
+    - 432
+    - 464 # lcz xsect
+    - 528 # lcz xsect
+    - 592 # lcz xsect
+    - 656 # lcz xsect
+    - 688
+    - 720 # lcz xsect (partial lcz cell)
+
+  section_xy:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+
+  data_output:
+    - 'm_soil'
+    - 't_soil'
+    - 'm_soil_av'
+    - 't_soil_av'
+    - 'shf*_xy_av'
+    - 'qsws*_xy_av'
+    - 'us*_xy_av'
+    - 'tsurf*_xy_av'
+    - 'ghf*_xy_av'
+    - 'ta_2m*_xy_av'
+    - 'rad_sw_in*_xy_av'
+    - 'rad_lw_in*_xy_av'
+    - 'rad_sw_out*_xy_av'
+    - 'rad_lw_out*_xy_av'
+    - 'u_xy'
+    - 'v_xy'
+    - 'w_xy'
+    - 'theta_xy'
+    - 'q_xy'
+    - 'e_xy'
+    - 'p_xy'
+    - 'rh_xy'
+    - 'u_xy_av'
+    - 'v_xy_av'
+    - 'w_xy_av'
+    - 'theta_xy_av'
+    - 'q_xy_av'
+    - 'e_xy_av'
+    - 'p_xy_av'
+    - 'rh_xy_av'
+    - 'uu_product_xy_av'
+    - 'vv_product_xy_av'
+    - 'ww_product_xy_av'
+    - 'wu_product_xy_av'
+    - 'wv_product_xy_av'
+    - 'wtheta_product_xy_av'
+    - 'wq_product_xy_av'
+    - 'ti_xy_av'
+    - 'u_xz'
+    - 'v_xz'
+    - 'w_xz'
+    - 'theta_xz'
+    - 'q_xz'
+    - 'e_xz'
+    - 'p_xz'
+    - 'rh_xy'
+    - 'u_xz_av'
+    - 'v_xz_av'
+    - 'w_xz_av'
+    - 'theta_xz_av'
+    - 'q_xz_av'
+    - 'e_xz_av'
+    - 'p_xz_av'
+    - 'rh_xy_av'
+    - 'uu_product_xz_av'
+    - 'vv_product_xz_av'
+    - 'ww_product_xz_av'
+    - 'wu_product_xz_av'
+    - 'wv_product_xz_av'
+    - 'vu_product_xz_av'
+    - 'vw_product_xz_av'
+    - 'wtheta_product_xz_av'
+    - 'wq_product_xz_av'
+    - 'ti_xz'
+    - 'u_yz'
+    - 'v_yz'
+    - 'w_yz'
+    - 'theta_yz'
+    - 'q_yz'
+    - 'e_yz'
+    - 'p_yz'
+    - 'u_yz_av'
+    - 'v_yz_av'
+    - 'w_yz_av'
+    - 'theta_yz_av'
+    - 'q_yz_av'
+    - 'e_yz_av'
+    - 'p_yz_av'
+    - 'uu_product_yz_av'
+    - 'vv_product_yz_av'
+    - 'ww_product_yz_av'
+    - 'wu_product_yz_av'
+    - 'wv_product_yz_av'
+    - 'uv_product_yz_av'
+    - 'uw_product_yz_av'
+    - 'wtheta_product_yz_av'
+    - 'wq_product_yz_av'
+    - 'ti_yz_av'
+
+  netcdf_data_format: 5
+
+user_parameters:
+  data_output_user:
+    - 'theta_product_xy_av'
+    - 'theta_product_xz_av'
+    - 'theta_product_yz_av'
+    - 'wu_sgs_xy_av'
+    - 'wu_sgs_xz_av'
+    - 'wu_sgs_yz_av'
+    - 'wv_sgs_xy_av'
+    - 'wv_sgs_xz_av'
+    - 'wv_sgs_yz_av'
+    - 'wtheta_sgs_xy_av'
+    - 'wtheta_sgs_xz_av'
+    - 'wtheta_sgs_yz_av'
+    - 'wq_sgs_xy_av'
+    - 'wq_sgs_xz_av'
+    - 'wq_sgs_yz_av'
+    - 'utheta_product_yz_av'
+    - 'uq_product_yz_av'
+    - 'uv_sgs_yz_av'
+    - 'uw_sgs_yz_av'
+    - 'utheta_sgs_yz_av'
+    - 'uq_sgs_yz_av'
+    - 'vtheta_product_xz_av'
+    - 'vq_product_xz_av'
+    - 'vu_sgs_xz_av'
+    - 'vw_sgs_xz_av'
+    - 'vtheta_sgs_xz_av'
+    - 'vq_sgs_xz_av'
+
+radiation_parameters:
+  radiation_scheme: 'external'
+  dt_radiation: 2.0
+  unscheduled_radiation_calls: true
+  localized_raytracing: true
+
+land_surface_parameters:
+  conserve_water_content: true
+  surface_type: 'read_from_file'

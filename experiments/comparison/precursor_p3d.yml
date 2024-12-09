@@ -1,0 +1,171 @@
+initialization_parameters:
+  nx: 255
+  ny: 255
+  nz: 192
+
+  dx: 16.0
+  dy: 16.0
+  dz: 16.0
+
+  rayleigh_damping_factor: 0.003
+  rayleigh_damping_height: 2560.0
+
+  humidity: true
+
+  scalar_advec: 'ws-scheme'
+  momentum_advec: 'ws-scheme'
+  psolver: 'multigrid'
+  mg_cycles: 2
+  turbulence_closure: '1.5-order-dai'
+
+  large_scale_subsidence: true
+  subs_vertical_gradient:
+    - -0.008
+    - 0.0
+  subs_vertical_gradient_level:
+    - 0.0
+    - 100.0
+
+
+  initializing_actions: 'read_from_file'
+
+  ug_surface: none
+  vg_surface: none
+
+  surface_pressure: 1000.0
+
+  origin_date_time: '2018-03-30 09:00:00 +00' # day before target day
+
+  # 50th parallel (Central Europe), longitude=0 just for convenience
+  latitude: 50.0
+  longitude: 0.0
+
+  spinup_time:  172800.0
+  spinup_pt_amplitude: 15.0
+  spinup_pt_mean: 283.4
+  calc_soil_moisture_during_spinup: true
+
+runtime_parameters:
+  npex: 4
+  npey: 4
+
+  # 1-day + 15 hr + 4 hr next night + 10 seconds extra
+  end_time: 154810.0
+
+  termination_time_needed: 1800.0
+
+  create_disturbances: true
+
+  dt_run_control: 60.0
+  dt_dots: 60.0
+
+  skip_time_dopr: 0.0
+  dt_dopr: 1800.0
+  averaging_interval_pr: 1800.0
+  dt_averaging_input_pr: 0.0
+
+  data_output_pr:
+    - '#u'
+    - '#v'
+    - 'w'
+    - '#theta'
+    - '#q'
+    - '#km'
+    - '#kh'
+    - 'rh'
+    - 'e'
+    - 'e*'
+    - 'wu'
+    - 'w"u"'
+    - 'w*u*'
+    - 'wv'
+    - 'w"v"'
+    - 'w*v*'
+    - 'wtheta'
+    - 'w"theta"'
+    - 'w*theta*'
+    - 'wqv'
+    - 'w"qv"'
+    - 'w*qv*'
+    - 'u*2'
+    - 'v*2'
+    - 'w*2'
+    - 'Sw'
+    - '#t_soil'
+    - '#m_soil'
+    
+  do3d_at_begin: true
+  do2d_at_begin: true
+
+  skip_time_data_output: 0.0
+  dt_data_output: 1800.0
+  dt_data_output_av: 1800.0
+  averaging_interval: 1800.0
+  dt_do2d_xy: 1800.0
+  dt_do2d_xz: 1800.0
+  dt_do3d: 3600.0
+  
+  dt_do2d_yz: 1.0
+  skip_time_do2d_yz: 68400.0
+
+  section_xz:
+    - 128
+
+  section_xy:
+    - 1
+    - 64
+    - 128
+  section_yz: 128
+
+  data_output:
+    - 'u'
+    - 'v'
+    - 'w'
+    - 'theta'
+    - 'q'
+    - 'e'
+    - 'p'
+    - 'shf*_xy'
+    - 'qsws*_xy'
+    - 'us*_xy'
+    - 'm_soil'
+    - 't_soil'
+    - 'tsurf*_xy'
+    - 'theta_2m*_xy'
+    - 'rad_net*_xy'
+    - 'rad_lw_in*_xy'
+    - 'rad_lw_out*_xy'
+    - 'rad_sw_in*_xy'
+    - 'rad_sw_out*_xy'
+    - 'u_yz'
+    - 'v_yz'
+    - 'w_yz'
+    - 'theta_yz'
+    - 'q_yz'
+    - 'e_yz'
+    - 'u_xz'
+    - 'v_xz'
+    - 'w_xz'
+    - 'theta_xz'
+    - 'q_xz'
+    - 'e_xz'
+
+  netcdf_data_format: 5
+
+
+radiation_parameters:
+  radiation_scheme: 'external'
+  dt_radiation: 30.0
+
+land_surface_parameters:
+  constant_roughness: true
+  conserve_water_content: true
+  dz_soil: 
+    - 0.01
+    - 0.02
+    - 0.04
+    - 0.06
+    - 0.14
+    - 0.26
+    - 0.54
+    - 1.86

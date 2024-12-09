@@ -1,0 +1,200 @@
+building_type:
+  dims:
+    - "y"
+    - "x"
+  value: 2
+pavement_type:
+  dims:
+    - "y"
+    - "x"
+  value: 2
+dz_roof:
+  dims:
+    - "nroof_3d"
+    - "y"
+    - "x"
+  value:
+    - 0.02
+    - 0.15
+    - 0.20
+    - 0.02
+c_roof:
+  dims:
+    - "nroof_3d"
+    - "y"
+    - "x"
+  value:
+    - 1.70000e+6
+    - 0.07920e+6
+    - 2.11200e+6
+    - 1.52600e+6
+lambda_roof:
+  dims:
+    - "nroof_3d"
+    - "y"
+    - "x"
+  value:
+    - 0.160
+    - 0.046
+    - 2.100
+    - 0.700
+dz_wall:
+  dims:
+    - "nwall_3d"
+    - "y"
+    - "x"
+  value:
+    - 0.02
+    - 0.06
+    - 0.24
+    - 0.02
+c_wall:
+  dims:
+    - "nwall_3d"
+    - "y"
+    - "x"
+  value:
+    - 1.5200e+6
+    - 0.0792e+6
+    - 2.1120e+6
+    - 1.5260e+6
+lambda_wall:
+  dims:
+    - "nwall_3d"
+    - "y"
+    - "x"
+  value:
+    - 0.930
+    - 0.046
+    - 2.100
+    - 0.700
+dz_road:
+  dims:
+    - "nroad_3d"
+    - "y"
+    - "x"
+  value:
+    - 0.01
+    - 0.04
+    - 0.20
+    - 1.00
+c_road:
+  dims:
+    - "nroad_3d"
+    - "y"
+    - "x"
+  value:
+    - 1.74e+6
+    - 1.74e+6
+    - 2.00e+6
+    - 1.40e+6
+lambda_road:
+  dims:
+    - "nroad_3d"
+    - "y"
+    - "x"
+  value:
+    - 0.82
+    - 0.82
+    - 2.10
+    - 0.40
+dz_window:
+  dims:
+    - "nwindow_3d"
+    - "y"
+    - "x"
+  value:
+    - 0.02
+    - 0.02
+    - 0.02
+    - 0.02
+c_window:
+  dims:
+    - "nwindow_3d"
+    - "y"
+    - "x"
+  value:
+    - 1.736e+6
+    - 1.736e+6
+    - 1.736e+6
+    - 1.736e+6
+lambda_window:
+  dims:
+    - "nwindow_3d"
+    - "y"
+    - "x"
+  value:
+    - 0.18
+    - 0.18
+    - 0.18
+    - 0.18
+window_fraction:
+  dims:
+    - "y"
+    - "x"
+  value: 0.25
+albedo_roof:
+  dims:
+    - "y"
+    - "x"
+  value: 0.10
+emissivity_roof:
+  dims:
+    - "y"
+    - "x"
+  value: 0.93
+albedo_wall:
+  dims:
+    - "y"
+    - "x"
+  value: 0.30
+emissivity_wall:
+  dims:
+    - "y"
+    - "x"
+  value: 0.93
+albedo_window:
+  dims:
+    - "y"
+    - "x"
+  value: 0.15
+emissivity_window:
+  dims:
+    - "y"
+    - "x"
+  value: 0.87
+transmissivity_window:
+  dims:
+    - "y"
+    - "x"
+  value: 0.65
+albedo_road:
+  dims:
+    - "y"
+    - "x"
+  value: 0.10
+emissivity_road:
+  dims:
+    - "y"
+    - "x"
+  value: 0.95
+z0_roof:
+  dims:
+    - "y"
+    - "x"
+  value: 0.15
+z0_road:
+  dims:
+    - "y"
+    - "x"
+  value: 0.05
+building_indoor_temperature:
+  dims:
+    - "y"
+    - "x"
+  value: 295.15
+deep_soil_temperature:
+  dims:
+    - "y"
+    - "x"
+  value: .NaN # Will be set from precursor run

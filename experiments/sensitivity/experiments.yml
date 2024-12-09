@@ -1,0 +1,341 @@
+#wspeed:
+#  category: inflow
+#  subcategory: external_forcing
+#  long_name: "Geostrophic wind speed"
+#  type: inflow_driver
+#  values:
+#    - slurb_pre_wspeed-x0.5
+#    - slurb_pre_wspeed+x0.5
+    
+rad_sw:
+  category: radiation
+  subcategory: external_forcing
+  long_name: "Incoming SW radiation"
+  type: factor
+  parameter:
+    rad_sw_in:
+      values:
+        - 0.5
+
+rad_lw:
+  category: radiation
+  subcategory: external_forcing
+  long_name: "Incoming LW radiation"
+  type: difference
+  parameter:
+    rad_lw_in:
+      values:
+        - 10
+
+par_rah:
+  category: namelist
+  long_name: "Fixed $z_{0,H}$ (horizontal)"
+  type: parameter
+  parameter:
+    aero_roughness_heat:
+      section: slurb_parameters
+      values:
+        - fixed
+        
+par_fac_res:
+  category: namelist
+  long_name: "R&A $r_{H}$ (vertical)"
+  type: parameter
+  parameter:
+    facade_resistance_parametrization:
+      section: slurb_parameters
+      values:
+        - rowley
+
+par_kray_combi:
+  category: namelist
+  long_name: "K&V parametrisations"
+  type: parameter_combination
+  parameters:
+    facade_resistance_parametrization:
+      section: slurb_parameters
+      value: krayenhoff&voogt
+    street_canyon_wspeed_factor:
+      section: slurb_parameters
+      value: krayenhoff&voogt
+
+par_can_wspeed:
+  category: namelist
+  long_name: "Masson $U_\\mathrm{can}$"
+  type: parameter
+  parameter:
+    street_canyon_wspeed_factor:
+      section: slurb_parameters
+      values:
+        - masson
+
+fr_urb:
+  category: slurb_driver
+  subcategory: urban_morphology
+  long_name: "Urban fraction"
+  type: complement_factor
+  parameter:
+    urban_fraction:
+      values:
+        - 0.5
+
+fr_plan:
+  category: slurb_driver
+  subcategory: urban_morphology
+  long_name: "Plan area fraction"
+  type: factor
+  parameter:
+    building_plan_area_fraction:
+      values:
+        - 0.5
+
+h_bld:
+  category: slurb_driver
+  subcategory: urban_morphology
+  long_name: "Mean building height"
+  type: factor
+  parameter:
+    building_height:
+      values:
+        - 0.5
+
+z0_urb:
+  category: slurb_driver
+  subcategory: urban_morphology
+  long_name: "Urban roughness length"
+  type: factor
+  parameter:
+    z0_urb:
+      values:
+        - 0.5
+
+hw_can:
+  category: slurb_driver
+  subcategory: urban_morphology
+  long_name: "Canyon aspect ratio"
+  type: factor
+  parameter:
+    street_canyon_aspect_ratio:
+      values:
+        - 0.5
+
+c_roof:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Roof heat capacity"
+  type: factor
+  parameter:
+    c_roof:
+      values:
+        - 0.5
+
+lambda_roof:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Roof thermal conductivity"
+  type: factor
+  parameter:
+    lambda_roof:
+      values:
+        - 0.5
+
+c_wall:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Wall heat capacity"
+  type: factor
+  parameter:
+    c_wall:
+      values:
+        - 0.5
+
+lambda_wall:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Wall thermal conductivity"
+  type: factor
+  parameter:
+    lambda_wall:
+      values:
+        - 0.5
+
+c_road:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Road heat capacity"
+  type: factor
+  parameter:
+    c_road:
+      values:
+        - 0.5
+
+lambda_road:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Road thermal conductivity"
+  type: factor
+  parameter:
+    lambda_road:
+      values:
+        - 0.5
+
+c_win:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Window heat capacity"
+  type: factor
+  parameter:
+    c_window:
+      values:
+        - 0.5
+
+lambda_win:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Window thermal conductivity"
+  type: factor
+  parameter:
+    lambda_window:
+      values:
+        - 0.5
+
+fr_win:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Window fraction"
+  type: factor
+  parameter:
+    window_fraction:
+      values:
+        - 0.5
+
+a_roof:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Roof albedo"
+  type: factor
+  parameter:
+    albedo_roof:
+      values:
+        - 0.5
+
+e_roof:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Roof emissivity"
+  type: complement_factor
+  parameter:
+    emiss_roof:
+      values:
+        - 0.5
+        
+a_wall:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Wall albedo"
+  type: factor
+  parameter:
+    albedo_wall:
+      values:
+        - 0.5
+
+e_wall:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Wall emissivity"
+  type: complement_factor
+  parameter:
+    emiss_wall:
+      values:
+        - 0.5
+
+a_win:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Window albedo"
+  type: factor
+  parameter:
+    albedo_window:
+      values:
+        - 0.5
+
+e_win:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Window emissivity"
+  type: complement_factor
+  parameter:
+    emiss_window:
+      values:
+        - 0.5
+
+tr_win:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Window transmissivity"
+  type: complement_factor
+  parameter:
+    transmissivity_window:
+      values:
+        - 0.5
+
+a_road:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Road albedo"
+  type: factor
+  parameter:
+    albedo_road:
+      values:
+        - 0.5
+
+e_road:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Road emissivity"
+  type: complement_factor
+  parameter:
+    emiss_road:
+      values:
+        - 0.5
+
+z0_roof:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Roof roughness length"
+  type: factor
+  parameter:
+    z0_roof:
+      values:
+        - 0.5
+
+z0_road:
+  category: slurb_driver
+  subcategory: material_parameters
+  long_name: "Road roughness length"
+  type: factor
+  parameter:
+    z0_road:
+      values:
+        - 0.5
+
+t_bld:
+  category: slurb_driver
+  subcategory: external_forcing
+  long_name: "Building indoor temperature"
+  type: difference
+  parameter:
+    building_indoor_temperature:
+      values:
+        - 2.0
+
+t_soil:
+  category: slurb_driver
+  subcategory: external_forcing
+  long_name: "Deep soil temperature"
+  type: difference
+  parameter:
+    deep_soil_temperature:
+      values:
+        - 5.0
+  

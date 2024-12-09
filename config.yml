@@ -1,0 +1,35 @@
+path:
+    data:
+        raw: data/raw/
+        interim: data/interim/
+        jobs: data/jobs/
+    experiments:
+        sensitivity: experiments/sensitivity/
+        comparison: experiments/comparison/
+
+    results: results/
+    notebooks: notebooks/
+
+dask:
+    array:
+        chunk_size: "1GiB"
+    cluster:
+        n_workers: "auto"
+        memory_limit: "124GiB"
+        scheduler:
+            host: "localhost"
+            port: 8786
+        dashboard:
+            address: ":8787"
+
+logging:
+    level: "INFO"
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+random:
+    seed: 1640
+
+plotting:
+    font_family: "DejaVu Sans"
+    font_serif: "DejaVu Sans"
+    font_size: 7
